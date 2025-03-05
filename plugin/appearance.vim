@@ -3,12 +3,13 @@
 
 set colorcolumn=+1        "Column after textwidth will be highlighted
 set display+=lastline     "Allow display of last part of line, not @@@
+set formatoptions=cq      "Wrap comments only, format comments w/ gq
+set guicursor=a:blinkon0  "Turn off cursor blink
 set hlsearch              "Enable search highlighting
 set ignorecase            "Ignore case when searching
 set incsearch             "Shows partial search matches
-set guicursor=a:blinkon0  "Turn off cursor blink
-set linebreak             "Avoid wrapping line in middle of word
 set laststatus=2          "Always show last status
+set linebreak             "Avoid wrapping line in middle of word
 set list                  "Show white space characters as listchars
 set listchars=eol:¬,tab:▸\ ,trail:~,extends:❯,precedes:❮,space:·
 set number                "Absolute number of lines
@@ -20,7 +21,6 @@ set showcmd               "Show commands after execution
 set textwidth=80          "Width for wrapping
 set title                 "Terminal window title as 'titlestring'
 set visualbell            "Flash visual bell rather than audio bell
-set formatoptions=cq      "Wrap comments only, format comments w/ gq
 
 augroup terminal          "Do not have line numbers when in Terminal window
   autocmd!

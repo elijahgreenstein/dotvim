@@ -16,8 +16,10 @@ set numberwidth=5         "Line numbers width (default is 4)
 set relativenumber        "Relative number of lines other than current
 set scrolloff=5           "Keep last five and top five lines visible
 set showbreak=↪           "Character when line is wrapped
+set showcmd               "Show commands after execution
 set textwidth=80          "Width for wrapping
 set title                 "Terminal window title as 'titlestring'
+set visualbell            "Flash visual bell rather than audio bell
 set formatoptions=cq      "Wrap comments only, format comments w/ gq
 
 augroup terminal          "Do not have line numbers when in Terminal window

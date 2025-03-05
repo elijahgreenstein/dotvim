@@ -1,4 +1,18 @@
 " ============================================================
+" Section: Light / Dark
+" Set light background between 08:00 and 20:00, o.w. dark
+
+let hour = strftime("%H")
+let light_min = 8
+let light_max = 20
+if ((hour >= light_max) == 1) + ((hour < light_min) == 1) > 0
+  set background=dark
+else
+  set background=light
+endif
+
+
+" ============================================================
 " Section: General
 
 set colorcolumn=+1        "Column after textwidth will be highlighted

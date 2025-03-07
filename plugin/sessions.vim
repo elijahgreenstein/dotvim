@@ -1,5 +1,13 @@
-" ============================================================
-" Overview: Shortcuts for creating, loading, and removing sessions.
+" Description: Shortcuts for creating, loading, and removing sessions.
+"
+" Designates a directory for Vim sessions and sets up a file to record the
+" names and history of sessions loaded.
+"
+" - Create a new session with `:Mks <NAME>`
+" - View sessions with `:Vws`
+" - View the session history with `:Shs`
+" - Load a session with `:Lds <NAME>`
+" - Remove a session with `:Rms <NAME>`
 
 
 " ============================================================

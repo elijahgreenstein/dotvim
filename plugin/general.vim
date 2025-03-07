@@ -1,4 +1,11 @@
 " ============================================================
+" Section: Spelling
+
+set spelllang=en_ca       "When `spell` is set, use Canadian English
+set spelllang+=cjk        "Exclude CJK characters from spell check
+
+
+" ============================================================
 " Section: General
 
 set autoread              "Reread file when outside changes detected

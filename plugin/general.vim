@@ -1,5 +1,4 @@
-" ============================================================
-" Overview: General Vim settings.
+" Description: General Vim settings.
 "
 " - Appearance
 " - Backups, swaps
@@ -8,7 +7,6 @@
 " - Spelling
 " - Tabs, spaces, indents
 " - Miscellaneous
-
 
 " ============================================================
 " Section: Appearance

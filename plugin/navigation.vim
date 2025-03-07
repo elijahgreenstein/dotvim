@@ -1,3 +1,5 @@
+" Description: Settings for navigation (Netrw)
+
 " ============================================================
 " Section: Netrw appearance
 

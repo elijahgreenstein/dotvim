@@ -1,5 +1,4 @@
-" Overview: Abbreviations for TeX and Markdown.
-
+" Description: Abbreviations for TeX and Markdown.
 
 function abbrTexMd#loadAbbr()
   " ============================================================

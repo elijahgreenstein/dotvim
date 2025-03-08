@@ -21,3 +21,17 @@ let g:netrw_preview = 1
 " Set default window size to x% of page
 " let g:netrw_winsize=20
 
+
+" ============================================================
+" Section: Navigation
+
+" Open directory of path under cursor
+function OpenCursor()
+  let s:path=expand("<cfile>")
+  exe "silent !open" s:path
+  echom "Opening" s:path
+endfunction
+command OpenCursor call OpenCursor()
+
+" Explore current working directory
+command Gowd execute "Ex" getcwd()

@@ -25,6 +25,9 @@ let g:netrw_preview = 1
 " ============================================================
 " Section: Navigation
 
+" Explore current working directory
+command Gowd execute "Ex" getcwd()
+
 " Open directory of path under cursor
 function OpenCursor()
   let s:path=expand("<cfile>")
@@ -33,5 +36,3 @@ function OpenCursor()
 endfunction
 command OpenCursor call OpenCursor()
 
-" Explore current working directory
-command Gowd execute "Ex" getcwd()

@@ -11,6 +11,9 @@
 " ============================================================
 " Section: Appearance
 
+" ------------------------------------------------------------
+" Subsection: Basic settings
+
 set colorcolumn=+1        "Column after textwidth will be highlighted
 set display+=lastline     "Allow display of last part of line, not @@@
 set formatoptions=cq      "Wrap comments only, format comments w/ gq
@@ -45,6 +48,9 @@ augroup END
 
 set guioptions-=e         " Use terminal-style tabline instead of GUI
 
+" ------------------------------------------------------------
+" Subsection: Light / dark background
+
 " Set light background between 08:00 and 20:00, o.w. dark
 let hour = strftime("%H")
 let light_min = 8
@@ -54,6 +60,86 @@ if ((hour >= light_max) == 1) + ((hour < light_min) == 1) > 0
 else
   set background=light
 endif
+
+" Toggle dark / light background
+function ToggleDarkLight()
+  if &background == "dark"
+    execute "set background=light"
+  else
+    execute "set background=dark"
+  endif
+endfunction
+
+
+" ------------------------------------------------------------
+" Subsection: Light / dark background
+" Set up status line, with options:
+"   - Base status line
+"   - File path status line
+"   - Status line with word count
+
+function! StatusLineBaseString()
+  let l:sl = "%2n\\|%<"                       "Buffer number    3char
+  let l:sl = l:sl . "%-20.20F"                "File path       20char
+  let l:sl = l:sl . "%-10y"                   "Type of file    10char
+  let l:sl = l:sl . "\\|c:\\ %3v"             "Current column   7char
+  let l:sl = l:sl . "\\|L:%5l/%5L\\ %3p%%"    "Lines       19char
+  return l:sl
+endfunction
+
+let g:mod_flag = "\\ %-3m" "Modified flag 4char
+
+" Set base status line globally
+function StatusLineBase()
+"  call StatusLineModeColour()
+  exe "set statusline=" . StatusLineBaseString() . g:mod_flag
+endfunction
+
+" Set base status line locally
+function StatusLineLocalBase()
+"  call StatusLineModeColourLocal()
+  exe "setlocal statusline=" . StatusLineBaseString() . g:mod_flag
+endfunction
+
+" Add word count to status line locally
+function StatusLineLocalWordCount()
+"  call StatusLineLocalBase()
+  exe "setlocal statusline=" . StatusLineBaseString()
+  setlocal statusline+=\|w:%5{wordcount().words} "Word      8char
+  exe "setlocal statusline+=" . g:mod_flag
+endfunction
+
+" Set file path status line locally
+function StatusLineLocalFilePath()
+"  call StatusLineModeColourLocal()
+  setlocal statusline=%F              "Full file path
+endfunction
+
+" Call base status line on start up
+call StatusLineBase()
+
+" ------------------------------------------------------------
+" Subsection: Syntax
+
+" Show syntax items info
+function Synfo()
+  for id in synstack(line("."), col("."))
+    echo synIDattr(id, "name") 
+  endfor
+endfunction
+command Synfo call Synfo()
+
+" ------------------------------------------------------------
+" Subsection: Application window
+
+" Set up gvim to size for single split, to text width, max height of screen
+command Single execute "set columns=" . (&textwidth + 6) "lines=999"
+" Set up gvim to size for single split (80), navigator (20+1), max height
+command SingleNav execute "set columns=108 lines=999"
+" Set up gvim to size for two splits (80 each), max height of screen
+command Double execute "set columns=173 lines=999"
+" Set up gvim to size for two splits (80 each), navigator (20+1), max height
+command DoubleNav execute "set columns=195 lines=999"
 
 
 " ============================================================
@@ -108,4 +194,7 @@ set tabstop=2             "Insert two spaces for tab
 set autoread              "Reread file when outside changes detected
 set encoding=utf-8        "Encoding (in Vim, in files) to UTF-8
 set mouse=a               "Enable use of mouse on terminal
+
+" Help in vertical split
+command -nargs=? H vert h <args>
 

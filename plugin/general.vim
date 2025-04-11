@@ -6,6 +6,7 @@
 " - Filetypes, syntax highlighting
 " - Spelling
 " - Tabs, spaces, indents
+" - Mappings
 " - Miscellaneous
 
 " ============================================================
@@ -186,6 +187,45 @@ set shiftround            "Round indent to multiple of 'shiftwidith'
 set shiftwidth=2          "Spaces for each step of autoindent
 set softtabstop=2         "Backspace treats two spaces like tab
 set tabstop=2             "Insert two spaces for tab
+
+
+" ============================================================
+" Section: Mappings
+
+" Leaders
+nnoremap <space> <nop>
+let mapleader="\<space>"
+let maplocalleader="\\"
+
+" ------------------------------------------------------------
+" Subsection: Insert
+
+" ESC from INSERT with jk
+inoremap jk <esc>
+
+" Arrows from n-dash, m-dash
+inoremap – ->
+inoremap — <-
+
+" ------------------------------------------------------------
+" Subsection: Normal
+
+" Z
+" Use zG to access local spellfile
+nnoremap zG 2zg
+
+" Leader Z
+" Correct nearest incorrect word ahead of cursor
+nnoremap <leader>cw ]s1z=``
+" Correct nearest incorrect word behind cursor
+nnoremap <leader>cW [s1z=``
+
+" Windows
+" Movement between windows
+nnoremap <Right> <c-w><Right>
+nnoremap <Left> <c-w><Left>
+nnoremap <Up> <c-w><Up>
+nnoremap <Down> <c-w><Down>
 
 
 " ============================================================

@@ -19,3 +19,12 @@ augroup filetype_latex_markdown
   autocmd FileType tex,markdown :call abbrTexMd#loadAbbr()
 augroup END
 
+
+" ============================================================
+" LaTeX, Markdown, reStructuredText: Load settings
+
+augroup writing_ft
+  autocmd!
+  autocmd FileType tex,markdown,rst :call writingSettings#writer()
+augroup END
+

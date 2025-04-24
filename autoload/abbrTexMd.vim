@@ -26,10 +26,9 @@ function abbrTexMd#loadAbbr()
 
   " ------------------------------------------------------------
   " Lists
-  iab <buffer> lbe \begin{enumerate}<cr>\tightlist<cr>\item <cr>\end{enumerate}<Up><Right><Right><C-R>=Eatchar('\s')<CR>
-  iab <buffer> lbi \begin{itemize}<cr>\tightlist<cr>\item <cr>\end{itemize}<Up><Right><Right><C-R>=Eatchar('\s')<CR>
+  iab <buffer> lbe \begin{enumerate}[noitemsep]<cr>\item <cr>\end{enumerate}<Up><Right><Right><C-R>=Eatchar('\s')<CR>
+  iab <buffer> lbi \begin{itemize}[noitemsep]<cr>\item <cr>\end{itemize}<Up><Right><Right><C-R>=Eatchar('\s')<CR>
   iab <buffer> lI \item
-  iab <buffer> ltl \tightlist<C-R>=Eatchar('\s')<CR>
 
   " ------------------------------------------------------------
   " Environments

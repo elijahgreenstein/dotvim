@@ -210,17 +210,29 @@ inoremap — <-
 " ------------------------------------------------------------
 " Subsection: Normal
 
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" Letters
+
 " Z
 " Use zG to access local spellfile
 nnoremap zG 2zg
 
-" Leader Z
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" Leader - Letter
+
+" O
+" Open directory
+nnoremap <leader>od :!open .<cr>
+
+" Z
 " Correct nearest incorrect word ahead of cursor
 nnoremap <leader>cw ]s1z=``
 " Correct nearest incorrect word behind cursor
 nnoremap <leader>cW [s1z=``
 
-" Windows
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" Arrows
+
 " Movement between windows
 nnoremap <Right> <c-w><Right>
 nnoremap <Left> <c-w><Left>

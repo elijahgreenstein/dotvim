@@ -49,6 +49,7 @@ function MakeSession(name)
   let filename = s:sessiondir . a:name . ".vim"
   execute "mksession! " . filename
   call UpdateSessionHistory(filename)
+  redraw!
   echo "Session saved: " filename
 endfunction
 
@@ -66,6 +67,7 @@ function RemoveSession(name)
   let sessionfile = s:sessiondir . a:name . ".vim"
   if (filereadable(sessionfile))
     execute "silent !rm " sessionfile
+    redraw!
     echo "Session '" . a:name . "' removed"
   else
     echo "No session named " a:name . ".vim"
